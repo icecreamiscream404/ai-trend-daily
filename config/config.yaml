@@ -251,8 +251,8 @@ notification:
 
   # 推送渠道配置
   channels:
-    feishu:
-      webhook_url: ""                 # 飞书机器人 webhook URL
+   feishu:
+  webhook_url: "${{ secrets.FEISHU_WEBHOOK_URL }}"
 
     dingtalk:
       webhook_url: ""                 # 钉钉机器人 webhook URL
