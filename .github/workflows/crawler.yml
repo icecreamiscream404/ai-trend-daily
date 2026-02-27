@@ -1,6 +1,4 @@
 name: Get Hot News
-permissions:
-  contents: write
 
 on:
   schedule:
@@ -168,14 +166,4 @@ jobs:
           S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
           S3_REGION: ${{ secrets.S3_REGION }}
           GITHUB_ACTIONS: true
-        run: python -m trendradar      - name: Commit and push generated outputs
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add output/html output/rss output/news || true
-
-          git diff --cached --quiet && echo "No changes to commit" && exit 0
-
-          git commit -m "Update daily outputs"
-          git push
+        run: python -m trendradar
